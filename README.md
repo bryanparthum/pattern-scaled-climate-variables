@@ -47,9 +47,12 @@ Socioeconomics: SSP1; GCM: BCC-CSM2-MR | Socioeconomics: SSP2; GCM: BCC-CSM2-MR
 
 # Local mean surface precipitation
 
- - | Standard Deviation of Patterns
+Average Change in Precipitation Across GCMs | Pattern Variation
 --- | ---
 ![](Precipitation/results/figures/precipitation_changes_2100_without_disagreement.svg) | ![](Precipitation/results/figures/precipitation_changes_2100_without_disagreement_sd.svg)
+
+**Changes in precipitation over land surface**
+![](Precipitation/results/figures/precipitation_changes_2100_without_disagreement_clipped.svg) 
 
 # License
 The software code contained within this repository is made available under the [MIT license](http://opensource.org/licenses/mit-license.php). Any data and figures are made available under the [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) license.
