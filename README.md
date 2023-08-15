@@ -39,7 +39,17 @@ Damage functions map changes in temperature to outcomes of interest such as thos
 
 Pattern scaling approaches result in a grid of predicted changes in local surface temperature resulting from a one degree change in GMST. Underlying these grids is conventional prediction error (or cell error) that captures the variation in local surface temperatures unexplained by the regression model. These errors are spatially correlated within the GCM and resulting pattern. Another source of uncertainty comes from the variation across GCMs used to derive the patterns. For this exercise we consider the variation across GCMs as the main source of uncertainty, non-parametric and independent, in the resulting local changes in surface temperatures. 
 
-# Examples of LMST and LMSP used in Practice
+# Local mean surface temperature
+
+Socioeconomics: SSP1; GCM: BCC-CSM2-MR | Socioeconomics: SSP2; GCM: BCC-CSM2-MR
+--- | ---
+![](Temperature/results/figures/cmip6/ssp2_2100_INM-CM5-0.svg) | ![](Temperature/results/figures/cmip6/ssp2_2100_EC-Earth3-Veg.svg)
+
+# Local mean surface precipitation
+
+ - | Standard Deviation of Patterns
+--- | ---
+![](Precipitation/results/figures/precipitation_changes_2100_without_disagreement.svg) | ![](Precipitation/results/figures/precipitation_changes_2100_without_disagreement_sd.svg)
 
 # License
 The software code contained within this repository is made available under the [MIT license](http://opensource.org/licenses/mit-license.php). Any data and figures are made available under the [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) license.

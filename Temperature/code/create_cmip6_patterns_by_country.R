@@ -139,7 +139,8 @@ for (SSP in c('ssp1','ssp2','ssp3')) {
           shapes$patterns.pop.2100)
     
     ## plot
-    egg::ggarrange(
+    plot =
+      egg::ggarrange(
       top     = paste0('GCM: ', substr(str_split(files[i],'/')[[1]][[4]], 17, nchar(str_split(files[i],'/')[[1]][[4]])-10)),
       heights = c(0.5, 1, 1, 1),
       ncol    = 1,
@@ -205,7 +206,7 @@ for (SSP in c('ssp1','ssp2','ssp3')) {
     
     ## export
     ggsave(paste0('results/figures/cmip6/', SSP, '_2100_', substr(str_split(files[i], '/')[[1]][[4]], 17, nchar(str_split(files[i], '/')[[1]][[4]])-10), '.svg'),
-           
+           plot,
            width  = 8.5,
            height = 11)
     
@@ -238,7 +239,7 @@ patterns %>%
 
 ## collapse to an average pattern across cmip models by country
 patterns %>% 
-  select(-c(source, source.id)) %>% 
+  dplyr::select(-c(source, source.id)) %>% 
   group_by(name, iso3, continent, scenario) %>% 
   summarise_all(mean, na.rm = T) %>% 
   write_csv('results/cmip6_pattern_scaling_by_country_mean.csv')
