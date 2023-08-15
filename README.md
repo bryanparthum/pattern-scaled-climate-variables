@@ -1,4 +1,5 @@
 # Pattern Scaling of Global Climate Variables
+
 This repo provides an overview and replication of a pattern scaling approach used to recover local estimates of changes in surface temperature and changes in precipitation under various climate futures. The patterns are used in tandem with geopolitical boundaries and socioeconomic projections to recover area weighted, gdp weighted, and population weighted estimates of country- and county-level (U.S.) average changes in climate variables that can be used as inputs to integrated assessment models. 
 
 Reduced complexity climate models, such as the Finite Amplitude Impulse Response model (FaIR), often take inputs such as anthropogenic and natural emissions of greenhouse gases and estimate the resulting change in global mean surface temperature (GMST) and global mean surface precipitation (GMSP). While many climate-economy models, such as the Dynamic Integrated Climate-Economy ([DICE](https://williamnordhaus.com/dicerice-models)) or the Greenhouse Gas Impact Value Estimator ([GIVE](https://github.com/rffscghg/MimiGIVE.jl)), include damage functions that accept these global climate variables (e.g., GMST, GSMP), other damage functions require more spatially refined estimates of changes in climate (e.g., [Burke et al., 2015](https://www.nature.com/articles/nature15725); [Ricke et al., 2018](https://www.nature.com/articles/s41558-018-0282-y); [Carleton et al., 2022](https://academic.oup.com/qje/article/137/4/2037/6571943); [Bressler et al., 2022](https://www.nature.com/articles/s41598-021-99156-5)). These damage functions are typically at the country- or county-level. As such, having country- or county-level estimates of changes in surface temperature and surface precipitation are important to estimate economic damages and costs under future climate conditions.
@@ -11,11 +12,13 @@ The products derived within this repository are:
 2. Changes in Local Mean Surface Precipitation (LMSP) from 1850-1900 averages.
 
 # Requirements
+
 1. *R* is free and available for download [here](https://www.r-project.org/). The *RStudio* integrated development environment is useful for replication, it is free and available for download [here](https://www.rstudio.com/products/rstudio/).  
 
 2. Optional: *Github* is free and available for download [here](https://github.com/git-guides/install-git). *Github* is used to house this repository and by installing and using it to clone the repository one will simplify the replication procedure. However, a user could also simply download a zipped file version of this repository, unzip in the desired location, and follow the replication procedures outlined below.
 
-# Getting Started
+# Getting started
+
 Begin by cloning or downloading a copy of this repository. This can be done by clicking on the green "code" button in this repository and following those instructions, or by navigating in the terminal via the command line to the desired location of the cloned repository and then typing: 
 
 ```
@@ -24,12 +27,11 @@ git clone https://github.com/bryanparthum/pattern-scaled-climate-variables
 
 Alternatively, you can make a `fork` of this repository and work from the fork in the same way. This allows for development on the `fork` while preserving its relationship with this repository.
 
-# The Patterns
+# Global circulation models and pattern scaling
+
 GCMs provide a range of different climate futures at spatially and temporally resolved resolutions. However, the are computationally expensive and prohibitive to use in many probabilistic settings (such as the methods underlying [Rennert et al. 2022](https://www.nature.com/articles/s41586-022-05224-9)). Instead, one can estimate spatial patterns by regressing the local value of the climate variable on the GMST. For an overview of the methods used within this repository, please see Lynch et al. (2017) (temperature) and Kravitz and Snyder (2022) (precipitation). 
 
-# The Process
-
-Once the slope of the relationship between GMST and local climate variables is recovered, we project a range of GMST onto these relationships to recover LMST and LMSP at the spatial resolution of the GCMs. This method is well-established in the literature and is not something we advance in this repository. Instead, we provide a method for aggregating these spatially- and temporally-resolved projections coming from GCMs and pattern scaling up to larger, commonly used, geopolitical jurisdictions.
+Once the slope of the relationship between GMST and local climate variables is recovered, a user can project a range of GMST onto these relationships to recover LMST and LMSP at the spatial resolution of the GCMs. This method is well-established in the literature and is not something advanced within this repository. Instead, this repository provides a method for aggregating these spatially- and temporally-resolved projections coming from GCMs and pattern scaling up to larger, commonly used, geopolitical jurisdictions.
 
 # Local economic and population projections
 
@@ -37,7 +39,7 @@ Damage functions map changes in temperature to outcomes of interest such as thos
 
 # Uncertainty 
 
-Pattern scaling approaches result in a grid of predicted changes in local surface temperature resulting from a one degree change in GMST. Underlying these grids is conventional prediction error (or cell error) that captures the variation in local surface temperatures unexplained by the regression model. These errors are spatially correlated within the GCM and resulting pattern. Another source of uncertainty comes from the variation across GCMs used to derive the patterns. For this exercise we consider the variation across GCMs as the main source of uncertainty, non-parametric and independent, in the resulting local changes in surface temperatures. 
+Pattern scaling approaches result in a grid of predicted changes in local surface temperature resulting from a one degree change in GMST. Underlying these grids is conventional prediction error (or cell error) that captures the variation in local surface temperatures unexplained by the regression model. These errors are spatially correlated within the GCM and resulting pattern. Another source of uncertainty comes from the variation across GCMs used to derive the patterns. For this exercise, the variation across GCMs provides the main source of uncertainty, non-parametric and independent, in the resulting local changes in surface temperatures. 
 
 # Local mean surface temperature
 
@@ -52,17 +54,21 @@ Average Change in Precipitation Across GCMs | Pattern Variation
 ![](Precipitation/results/figures/precipitation_changes_2100_without_disagreement.svg) | ![](Precipitation/results/figures/precipitation_changes_2100_without_disagreement_sd.svg)
 
 **Changes in precipitation over land surface**
+
 ![](Precipitation/results/figures/precipitation_changes_2100_without_disagreement_clipped.svg) 
 
 # License
+
 The software code contained within this repository is made available under the [MIT license](http://opensource.org/licenses/mit-license.php). Any data and figures are made available under the [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) license.
 
 # Citations
 
 ## Citing this repository
+
 Parthum, B., and Rennels, L. Pattern Scaling of Global Climate Variables. 2023. https://github.com/bryanparthum/pattern-scaled-climate-variables
 
 ## Climate data
+
 Eyring, V., Bony, S., Meehl, G. A., Senior, C. A., Stevens, B., Stouffer, R. J., and Taylor, K. E.: Overview of the Coupled Model Intercomparison Project Phase 6 (CMIP6) experimental design and organization, Geosci. Model Dev., 9, 1937–1958, https://doi.org/10.5194/gmd-9-1937-2016, 2016.
 
 Earth System Grid Federation: https://esgf-node.llnl.gov/projects/esgf-llnl/
