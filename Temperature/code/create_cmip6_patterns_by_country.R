@@ -66,10 +66,10 @@ for (SSP in c('ssp1','ssp2','ssp3')) {
         )
       
       ## country temp patterns
-      gdp.weights.2000 = fasterize(ses, pattern, field = "g1_2000", fun = "sum", background = mean(ses$g1_2000, na.rm=T))
-      pop.weights.2000 = fasterize(ses, pattern, field = "p1_2000", fun = "sum", background = mean(ses$p1_2000, na.rm=T))
-      gdp.weights.2100 = fasterize(ses, pattern, field = "g1_2100", fun = "sum", background = mean(ses$g1_2100, na.rm=T))
-      pop.weights.2100 = fasterize(ses, pattern, field = "p1_2100", fun = "sum", background = mean(ses$p1_2100, na.rm=T))
+      gdp.weights.2000 = fasterize(ses, pattern, field = "g1_2000", fun = "sum", background = mean(ses$g1_2000, na.rm = T))
+      pop.weights.2000 = fasterize(ses, pattern, field = "p1_2000", fun = "sum", background = mean(ses$p1_2000, na.rm = T))
+      gdp.weights.2100 = fasterize(ses, pattern, field = "g1_2100", fun = "sum", background = mean(ses$g1_2100, na.rm = T))
+      pop.weights.2100 = fasterize(ses, pattern, field = "p1_2100", fun = "sum", background = mean(ses$p1_2100, na.rm = T))
       
     } else if (SSP=='ssp2') {
       ses = 
