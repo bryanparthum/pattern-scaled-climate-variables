@@ -55,7 +55,8 @@ data =
 
 ## add to grid
 plot.data =  
-  left_join(grid, data) 
+  left_join(grid, data) #%>% 
+  # st_intersection(world)
 
 ## plot without model disagreement
 ggplot() +

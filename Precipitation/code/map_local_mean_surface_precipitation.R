@@ -50,12 +50,13 @@ data =
             sd.to.mean      = abs(pattern.sd/pattern.mean),
             model.agreement = case_when(sd.to.mean >= 7 ~ 'Low Model Agreement',
                                         T ~ 'High Model Agreement'),
-            value           = case_when(model.agreement == 'Low Model Agreement' ~ NA_real_,
-                                        T ~ pattern.mean))
+            lmsp.model.agree = case_when(model.agreement == 'Low Model Agreement' ~ NA_real_,
+                                         T ~ lmsp))
 
 ## add to grid
 plot.data =  
-  left_join(grid, data) 
+  left_join(grid, data) %>% 
+  st_intersection(world)
 
 ## plot without model disagreement
 ggplot() +
@@ -64,14 +65,6 @@ ggplot() +
           color = NA) +
   geom_sf(data = world,
           fill = NA) +
-  scale_color_distiller(palette  = 'BrBG',
-                        direction = +1,
-                        na.value = 'white',
-                        breaks   = scales::pretty_breaks(n = 6),
-                        guide    = guide_colorbar(title.position = 'top'),
-                        limits   = c(-0.8, 2.9),
-                        values   = scales::rescale(c(-0.8, -0.4, 0, 0.5, 2.5))
-                        ) +
   scale_fill_distiller(palette  = 'BrBG',
                        direction = +1,
                        na.value = 'white',
@@ -79,7 +72,7 @@ ggplot() +
                        guide    = guide_colorbar(title.position = 'top'),
                        limits   = c(-0.8, 2.9),
                        values   = scales::rescale(c(-0.8, -0.4, 0, 0.5, 2.5))
-                       ) +
+  ) +
   labs(fill    = 'Average Change in Local Mean Surface Precipitation in 2100 (mm/day)') +
   theme_void() +
   theme(legend.position    = 'bottom',

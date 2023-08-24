@@ -88,11 +88,29 @@ path = 'data/annual/'
 files = 
   list.files(path, pattern = 'ssp245_pr', full.names = T)
 
+# ## world map
+# world =
+#   st_as_sf(cleangeo::clgeo_Clean(getMap())) %>%
+#   dplyr::select(NAME, ISO3, continent) %>%
+#   rename_all(tolower) %>%
+#   st_transform(st_crs('+proj=longlat +datum=WGS84 +no_defs'))
+# 
+# ## create 2 degree grid around world
+# sf_use_s2(FALSE) ## turn off planar geometry until package developers can fix this
+# stars::st_as_stars(st_bbox(world), dx = 2, dy = 2) %>%   ## in degrees
+#   st_as_sf(crs = st_crs('+proj=longlat +datum=WGS84 +no_defs')) %>%
+#   mutate(grid.id = seq(n())) %>%
+#   dplyr::select(grid.id) %>%
+#   st_make_valid %>%
+#   st_write('data/data_grid/data_grid.shp',
+#            crs = st_crs('+proj=longlat +datum=WGS84 +no_defs'),
+#            delete_layer = T)
+
 ## get grid from get_gridded_patterns_by_gcm.R
 grid = 
   st_read('data/data_grid/data_grid.shp',
           crs = st_crs('+proj=longlat +datum=WGS84 +no_defs')) %>%
-  rename(grid.id = grid_id)
+  rename(grid.id = grid_id) 
 
 ## get each pattern by gcm
 data = 

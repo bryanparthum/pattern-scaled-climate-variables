@@ -19,6 +19,9 @@ lapply(list.of.packages, library, character.only = TRUE)
 ###################  parts
 ##########################
 
+## turn off planar geometry until package developers can fix this
+sf_use_s2(FALSE)
+
 ## function to read in patters and scale by gmst
 get_patterns <- function(x) {
   
@@ -58,17 +61,11 @@ files =
   list.files('data/patterns/cmip6', full.names = T) %>%
   stringr::str_subset(., "broken", negate = T)
 
-# ## make a grid from patterns, use the first pattern to make grid
-grid =
-  stars::st_as_stars(st_bbox(raster(files[1], varname = "pattern") %>% rotate), dx = 2, dy = 2) %>%   ## in degrees
-  st_as_sf(crs = st_crs('+proj=longlat +datum=WGS84 +no_defs')) %>%
-  mutate(grid.id = seq(n())) %>%
-  dplyr::select(grid.id)
-
-## export grid
-grid %>% 
-  st_write('data/data_grid/data_grid.shp',
-           delete_layer = T)
+## get grid from Precipitation/code/get_gridded_patterns_by_gcm.R
+grid = 
+  st_read('data/data_grid/data_grid.shp',
+          crs = st_crs('+proj=longlat +datum=WGS84 +no_defs')) %>%
+  rename(grid.id = grid_id)
 
 ## get each pattern by gcm
 data = 
