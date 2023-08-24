@@ -51,11 +51,7 @@ Socioeconomics: SSP1; GCM: BCC-CSM2-MR | Socioeconomics: SSP2; GCM: BCC-CSM2-MR
 
 Average Change in Precipitation Across GCMs | Pattern Variation
 --- | ---
-![](Precipitation/results/figures/precipitation_changes_2100_without_disagreement.svg) | ![](Precipitation/results/figures/precipitation_changes_2100_without_disagreement_sd.svg)
-
-**Changes in precipitation over land surface**
-
-![](Precipitation/results/figures/precipitation_changes_2100_without_disagreement_clipped.svg) 
+![](Precipitation/results/figures/lmsp_2100.svg) | ![](Precipitation/results/figures/lmsp_2100_with_model_disagreement_hatched.svg)
 
 # License
 
