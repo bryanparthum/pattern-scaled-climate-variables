@@ -47,9 +47,12 @@ Socioeconomics: SSP1; GCM: BCC-CSM2-MR | Socioeconomics: SSP2; GCM: BCC-CSM2-MR
 --- | ---
 ![](Temperature/results/figures/cmip6/ssp2_2100_INM-CM5-0.svg) | ![](Temperature/results/figures/cmip6/ssp2_2100_EC-Earth3-Veg.svg)
 
+**Average Change in Local Mean Surface Temperature Across the 26 GCMs**
+![](Temperature/results/figures/lmst_2100.svg) 
+
 # Local mean surface precipitation
 
-Average Change in Precipitation Across GCMs | Pattern Variation
+Average Change in Local Mean Surface Precipitation Across the 26 GCMs | Model Disagreement Across the 26 GCMs
 --- | ---
 ![](Precipitation/results/figures/lmsp_2100.svg) | ![](Precipitation/results/figures/lmsp_2100_with_model_disagreement_hatched.svg)
 
