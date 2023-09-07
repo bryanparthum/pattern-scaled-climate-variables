@@ -52,7 +52,7 @@ Socioeconomics: SSP1; GCM: BCC-CSM2-MR | Socioeconomics: SSP2; GCM: BCC-CSM2-MR
 
 # Local mean surface precipitation
 
-Average Change in Local Mean Surface Precipitation Across the 26 GCMs | Model Disagreement Across the 26 GCMs
+Average Change in Local Mean Surface Precipitation Across the 26 GCMs | Average Change in Local Mean Surface Precipitation Across the 26 GCMs over Land Areas (avg. is 1.35 times higher than GMST)
 --- | ---
 ![](Precipitation/results/figures/lmsp_2100.svg) | ![](Precipitation/results/figures/lmsp_2100_with_model_disagreement_hatched.svg)
 
