@@ -18,7 +18,8 @@ gc()
 
 ## This function will check if a package is installed, and if not, install it
 list.of.packages <- c('magrittr','tidyverse',
-                      'raster','sf','exactextractr','fasterize','stars','egg')
+                      'raster','sf','exactextractr','fasterize','stars','egg',
+                      'USAboundaries')
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages, repos = "http://cran.rstudio.com/")
 lapply(list.of.packages, library, character.only = TRUE)
